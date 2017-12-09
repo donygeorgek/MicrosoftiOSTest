@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalenderDayCell" id="gTV-IL-0wX" customClass="CalenderDayCell" customModule="MicrosoftiOSTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgT-js-tmi">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="15.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnQ-Kv-Yte">
+                        <rect key="frame" x="8" y="8" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="Lwi-Fa-wwZ"/>
+                            <constraint firstAttribute="height" constant="35" id="dId-eO-8Qb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="qgT-js-tmi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PD8-Jp-Qm7"/>
+                <constraint firstItem="KnQ-Kv-Yte" firstAttribute="top" secondItem="qgT-js-tmi" secondAttribute="bottom" constant="-7.5" id="R9f-Od-nsO"/>
+                <constraint firstAttribute="trailing" secondItem="qgT-js-tmi" secondAttribute="trailing" id="WKw-tt-Ho5"/>
+                <constraint firstItem="KnQ-Kv-Yte" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gnw-31-Nzd"/>
+                <constraint firstItem="KnQ-Kv-Yte" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="n32-oL-pqt"/>
+                <constraint firstItem="qgT-js-tmi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yUV-W2-BwP"/>
+            </constraints>
+            <connections>
+                <outlet property="dayLbl" destination="KnQ-Kv-Yte" id="J4h-ag-ErB"/>
+                <outlet property="monthLbl" destination="qgT-js-tmi" id="Mmp-rc-gao"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
