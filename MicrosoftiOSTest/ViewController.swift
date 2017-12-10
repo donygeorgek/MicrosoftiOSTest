@@ -176,7 +176,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         var dateArray: [Date] = []
         
-        for _ in 0..<10{
+        for _ in 0..<15{
             
             //Selecting random dates from current month
             let randomNo = Int(arc4random_uniform(UInt32(currentMonthDays)) + 1)
@@ -528,6 +528,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //Tableview Methods
     
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if agendaData.count > 0 {
+            
+            return 20
+            
+        }else{
+            
+            return 0
+            
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
@@ -550,8 +569,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             agendaCell = AgendaListCell(style: .default, reuseIdentifier: "AgendaListCell")
         }
         
+        
+        let agendaItem = agendaData[indexPath.row]
+        agendaCell?.eventNameLbl.text = "\(String(describing: agendaItem["eventName"]!))"
+        agendaCell?.eventLocationLbl.text = "\(String(describing: agendaItem["eventLocName"]!))"
+        agendaCell?.timeLbl.text = "\(String(describing: agendaItem["eventTime"]!))"
         agendaCell?.selectionStyle = .none
-        agendaCell?.roundView.layer.cornerRadius = (agendaCell?.roundView.bounds.width)!
+        agendaCell?.roundView.layer.cornerRadius = 5
         
         return agendaCell!
         

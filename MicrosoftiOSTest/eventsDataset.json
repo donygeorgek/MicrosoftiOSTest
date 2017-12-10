@@ -5,7 +5,7 @@
       "eventName": "Service Appointment - BMW",
       "eventLocLat": 12.972989,
       "eventLocLon": 77.599517,
-      "eventLocName": "Bangalore",
+      "eventLocName": "Bangalore Office",
       "eventMembers": [
         "Dony George",
         "Meera Dony",
@@ -28,7 +28,7 @@
       "eventName": "Lunch with Meera",
       "eventLocLat": 12.967836,
       "eventLocLon": 77.596358,
-      "eventLocName": "Bangalore",
+      "eventLocName": "Lavelle Road",
       "eventMembers": [
         "Dony George",
         "Meera Dony"
@@ -71,10 +71,10 @@
     },
     {
       "eventTime": "17:00",
-      "eventName": "Team Meeting",
+      "eventName": "Skype with Ryan",
       "eventLocLat": 12.967836,
       "eventLocLon": 77.596358,
-      "eventLocName": "Bangalore",
+      "eventLocName": "California HQ",
       "eventMembers": [
         "Dony George",
         "Meera Dony",
@@ -83,7 +83,7 @@
     },
     {
       "eventTime": "18:00",
-      "eventName": "Team Meeting",
+      "eventName": "All Hands Meeting",
       "eventLocLat": 12.967836,
       "eventLocLon": 77.596358,
       "eventLocName": "Bangalore",
@@ -94,10 +94,10 @@
       ]
     },{
       "eventTime": "19:00",
-      "eventName": "Team Meeting",
+      "eventName": "Design Review",
       "eventLocLat": 12.967836,
       "eventLocLon": 77.596358,
-      "eventLocName": "Bangalore",
+      "eventLocName": "SF, HQ",
       "eventMembers": [
         "Dony George",
         "Meera Dony",
@@ -105,10 +105,10 @@
       ]
     },{
       "eventTime": "20:00",
-      "eventName": "Team Meeting",
+      "eventName": "Dinner with Lizabeth",
       "eventLocLat": 12.967836,
       "eventLocLon": 77.596358,
-      "eventLocName": "Bangalore",
+      "eventLocName": "Portland Steak House",
       "eventMembers": [
         "Dony George",
         "Meera Dony",
