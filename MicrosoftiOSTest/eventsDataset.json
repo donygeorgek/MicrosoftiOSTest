@@ -1,0 +1,119 @@
+{
+  "events": [
+    {
+      "eventTime": "08:00",
+      "eventName": "Service Appointment - BMW",
+      "eventLocLat": 12.972989,
+      "eventLocLon": 77.599517,
+      "eventLocName": "Bangalore",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony",
+        "Cyril George"
+      ]
+    },
+    {
+      "eventTime": "10:00",
+      "eventName": "Outlook Mobile - All Hands",
+      "eventLocLat": 37.774929,
+      "eventLocLon": -122.419416,
+      "eventLocName": "New York",
+      "eventMembers": [
+        "Ogden Kent",
+        "Eddie Kim"
+      ]
+    },
+    {
+      "eventTime": "12:30",
+      "eventName": "Lunch with Meera",
+      "eventLocLat": 12.967836,
+      "eventLocLon": 77.596358,
+      "eventLocName": "Bangalore",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony"
+      ]
+    },
+    {
+      "eventTime": "14:00",
+      "eventName": "Team Meeting",
+      "eventLocLat": 12.967836,
+      "eventLocLon": 77.596358,
+      "eventLocName": "Bangalore",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony",
+        "Cyril George"
+      ]
+    },
+    {
+      "eventTime": "15:00",
+      "eventName": "Interview with Microsoft",
+      "eventLocLat": 37.774929,
+      "eventLocLon": -122.419416,
+      "eventLocName": "Microsoft HQ",
+      "eventMembers": [
+        "Ogden Kent",
+        "Eddie Kim"
+      ]
+    },
+    {
+      "eventTime": "16:00",
+      "eventName": "Team Meeting",
+      "eventLocLat": 12.967836,
+      "eventLocLon": 77.596358,
+      "eventLocName": "Microsoft HQ",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony",
+        "Cyril George"
+      ]
+    },
+    {
+      "eventTime": "17:00",
+      "eventName": "Team Meeting",
+      "eventLocLat": 12.967836,
+      "eventLocLon": 77.596358,
+      "eventLocName": "Bangalore",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony",
+        "Cyril George"
+      ]
+    },
+    {
+      "eventTime": "18:00",
+      "eventName": "Team Meeting",
+      "eventLocLat": 12.967836,
+      "eventLocLon": 77.596358,
+      "eventLocName": "Bangalore",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony",
+        "Cyril George"
+      ]
+    },{
+      "eventTime": "19:00",
+      "eventName": "Team Meeting",
+      "eventLocLat": 12.967836,
+      "eventLocLon": 77.596358,
+      "eventLocName": "Bangalore",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony",
+        "Cyril George"
+      ]
+    },{
+      "eventTime": "20:00",
+      "eventName": "Team Meeting",
+      "eventLocLat": 12.967836,
+      "eventLocLon": 77.596358,
+      "eventLocName": "Bangalore",
+      "eventMembers": [
+        "Dony George",
+        "Meera Dony",
+        "Cyril George"
+      ]
+    }
+  ]
+}

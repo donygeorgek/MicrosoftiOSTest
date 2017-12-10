@@ -20,6 +20,7 @@
 		1F4419B11FDAA2D10091C0C3 /* AgendaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4419AF1FDAA2D10091C0C3 /* AgendaListCell.swift */; };
 		1F4419B21FDAA2D10091C0C3 /* AgendaListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */; };
 		1F4419B51FDD09770091C0C3 /* WeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4419B41FDD09770091C0C3 /* WeatherAPIClient.swift */; };
+		1F4419B91FDD16000091C0C3 /* eventsDataset.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F4419B81FDD16000091C0C3 /* eventsDataset.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		1F4419AF1FDAA2D10091C0C3 /* AgendaListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaListCell.swift; sourceTree = "<group>"; };
 		1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaListCell.xib; sourceTree = "<group>"; };
 		1F4419B41FDD09770091C0C3 /* WeatherAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPIClient.swift; sourceTree = "<group>"; };
+		1F4419B81FDD16000091C0C3 /* eventsDataset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eventsDataset.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				1F44197B1FDA9E190091C0C3 /* Assets.xcassets */,
 				1F44197D1FDA9E190091C0C3 /* LaunchScreen.storyboard */,
 				1F4419801FDA9E190091C0C3 /* Info.plist */,
+				1F4419B81FDD16000091C0C3 /* eventsDataset.json */,
 				1F4419781FDA9E190091C0C3 /* MicrosoftiOSTest.xcdatamodeld */,
 			);
 			path = MicrosoftiOSTest;
@@ -286,6 +289,7 @@
 				1F44197F1FDA9E190091C0C3 /* LaunchScreen.storyboard in Resources */,
 				1F4419AA1FDA9F750091C0C3 /* CalenderDayCell.xib in Resources */,
 				1F44197C1FDA9E190091C0C3 /* Assets.xcassets in Resources */,
+				1F4419B91FDD16000091C0C3 /* eventsDataset.json in Resources */,
 				1F4419B21FDAA2D10091C0C3 /* AgendaListCell.xib in Resources */,
 				1F4419771FDA9E190091C0C3 /* Main.storyboard in Resources */,
 			);

@@ -10,6 +10,10 @@ import UIKit
 
 class AgendaListCell: UITableViewCell {
 
+    @IBOutlet weak var eventLocationLbl: UILabel!
+    @IBOutlet weak var eventNameLbl: UILabel!
+    @IBOutlet weak var roundView: UIView!
+    @IBOutlet weak var timeLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -15,6 +15,8 @@ protocol CalenderDayCellDelegate : class {
 
 class CalenderDayCell: UICollectionViewCell {
     
+    var isEventPresent: Bool = false
+    
     //Date to be displayed on each cell
     var cellDisplayDate: Date? {
         didSet {
@@ -31,12 +33,9 @@ class CalenderDayCell: UICollectionViewCell {
             
             setupCellPattern()
             
-            
         }
     }
 
-    
-    
     
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var monthLbl: UILabel!
@@ -64,12 +63,22 @@ class CalenderDayCell: UICollectionViewCell {
                 self.selectCell()
                 //Hiding the month label in the cell for 1st day
                 self.monthLbl.isHidden = true
+                self.roundView.isHidden = true
                 
             }else{
                 
                 self.checkForTodayCell()
                 //Showing the month label in the cell for 1st day
                 self.monthLbl.isHidden = false
+                if isEventPresent{
+                    
+                    self.roundView.isHidden = false
+                    
+                }else{
+                    
+                    self.roundView.isHidden = true
+                    
+                }
             }
             
         }else{
@@ -77,6 +86,15 @@ class CalenderDayCell: UICollectionViewCell {
             self.checkForTodayCell()
             //Showing the month label in the cell for 1st day
             self.monthLbl.isHidden = false
+            if isEventPresent{
+                
+                self.roundView.isHidden = false
+                
+            }else{
+                
+                self.roundView.isHidden = true
+                
+            }
             
         }
         
@@ -90,6 +108,7 @@ class CalenderDayCell: UICollectionViewCell {
         if order == .orderedSame {
             
             self.selectTodayCell()
+            
             
         }else{
             
@@ -111,7 +130,6 @@ class CalenderDayCell: UICollectionViewCell {
         self.contentView.backgroundColor = UIColor.init(hex: "E5EDF4")
         self.roundView.layer.cornerRadius = self.roundView.bounds.width/2
         self.roundView.isHidden = true
-
         
     }
     
@@ -144,7 +162,7 @@ class CalenderDayCell: UICollectionViewCell {
         self.dayLbl.clipsToBounds = false
         self.contentView.backgroundColor = UIColor.init(hex: "E5EDF4")
         self.roundView.layer.cornerRadius = self.roundView.bounds.width/2
-        self.roundView.isHidden = false
+        self.roundView.isHidden = true
         
     }
 

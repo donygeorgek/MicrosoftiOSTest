@@ -10,15 +10,28 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
+    //Array of weekdays
     var weekDayNames:[String] = Array()
+    //Current month date
     var currentDate : Date!
+    //No of days in the month
     var currentMonthDays : Int!
+    //First weekday of the current month
     var currentMonthFirstWeekDay : Int!
+    //Previous month date
     var previousDate : Date!
+    //No of days in previous month
     var previousMonthDays : Int!
+    //Next month date
     var nextDate : Date!
+    //Selected date
     var dateSelected: Date!
+    //Variable to hold randon dates containing events
+    var randomEventsDates: [Date] = []
+    //Data for agenda tableview
+    var agendaData: [[String: Any]] = []
+    //Dummy events Data
+    var dummyEventsData: [[String: Any]] = []
     
 
 
@@ -115,20 +128,86 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    //Function to load dummy events data from the json file
+    func loadEventsDummyData() {
+        do {
+            if let file = Bundle.main.url(forResource: "eventsDataset", withExtension: "json") {
+                let data = try Data(contentsOf: file)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                if let object = json as? [String: Any] {
+                    // json is a dictionary
+                    dummyEventsData  = object["events"] as! [[String : Any]]
+                    print(object)
+                } else if let object = json as? [Any] {
+                    // json is an array
+                    print(object)
+                } else {
+                    print("Invalid file")
+                }
+            } else {
+                print("File not found")
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
     //Function to initialize datas
     func initializeDatas(){
         
+        
+        loadEventsDummyData()
         currentDate = Date()
         previousDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate)
         nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)
         weekDayNames = getWeekDays()
         previousMonthDays = getNumberOfDays(inMonth: previousDate)
-        
         updateMonthTitle(date: currentDate)
+        randomEventsDates = getRandonDates()
+        
         self.calenderDayCollectionView.reloadData()
         
         
     }
+    
+    //Function to get random dates with events
+    func getRandonDates() -> [Date]{
+        
+        var dateArray: [Date] = []
+        
+        for _ in 0..<10{
+            
+            //Selecting random dates from current month
+            let randomNo = Int(arc4random_uniform(UInt32(currentMonthDays)) + 1)
+            let randomDate = getDate(fromIndex: randomNo)
+            dateArray.append(randomDate)
+        }
+        
+        return dateArray
+    }
+    
+    
+    //Function to load dummy events for selected date
+    func loadRandomEventsForDate(){
+        agendaData.removeAll()
+        //Generating random number of events for a day
+        let randomCount = Int(arc4random_uniform(UInt32(dummyEventsData.count)) + 1)
+        
+        for _ in 0..<randomCount{
+            
+            //Selecting random event from the dummy event list for a date
+            let randomNo = Int(arc4random_uniform(UInt32(dummyEventsData.count)))
+            
+            agendaData.append(dummyEventsData[randomNo])
+        }
+        
+        self.agendaTableView.reloadData()
+    }
+
+    
+
+    
     
     //Function to get week days
     func getWeekDays() -> Array<String>{
@@ -245,18 +324,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //Clear cell after reuse
             calenderCell?.unSelectCell()
             
+            
             //Logic for identifying previous month, present month and next month
             
             if row < currentMonthFirstWeekDay - 1{
                 
+                calenderCell?.isEventPresent = false
                 let dateNo = row + previousMonthDays - currentMonthFirstWeekDay + 2
                 calenderCell?.dayLbl.textColor = UIColor.lightGray
                 calenderCell?.dayLbl.text = "\(dateNo)"
                 calenderCell?.monthLbl.text = ""
                 
+                
             }else if row >= currentMonthFirstWeekDay - 1 && row <= currentMonthFirstWeekDay + currentMonthDays - 2{
                 
                 let dateNo = row - currentMonthFirstWeekDay + 2
+//                calenderCell?.isEventPresent = true
                 calenderCell?.dayLbl.textColor = UIColor.black
                 calenderCell?.dayLbl.text = "\(dateNo)"
                 
@@ -273,6 +356,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 //Create current cell date object
                 let cellDisplayDate = getDate(fromIndex: dateNo)
+                if randomEventsDates.contains(cellDisplayDate){
+                    
+                    calenderCell?.isEventPresent = true
+                    
+                }else{
+                    
+                    calenderCell?.isEventPresent = false
+                    
+                }
                 calenderCell?.cellDisplayDate = cellDisplayDate
                 
                 
@@ -289,6 +381,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
             }else if row > currentMonthFirstWeekDay + currentMonthDays - 2{
                 
+                calenderCell?.isEventPresent = false
                 let dateNo = row - currentMonthDays - currentMonthFirstWeekDay + 2
                 calenderCell?.dayLbl.textColor = UIColor.lightGray
                 calenderCell?.dayLbl.text = "\(dateNo)"
@@ -330,6 +423,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let dateNo = row - currentMonthFirstWeekDay + 2
                 dateSelected = getDate(fromIndex: dateNo)
                 collectionView.reloadData()
+                
+                if randomEventsDates.contains(dateSelected){
+                    
+                    loadRandomEventsForDate()
+                }else{
+                    
+                    agendaData.removeAll()
+                    agendaTableView.reloadData()
+                    
+                }
+                
                 
             }else if row > currentMonthFirstWeekDay + currentMonthDays - 2{
                 
@@ -427,7 +531,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return 10
+        return agendaData.count
         
     }
     
@@ -447,6 +551,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         agendaCell?.selectionStyle = .none
+        agendaCell?.roundView.layer.cornerRadius = (agendaCell?.roundView.bounds.width)!
         
         return agendaCell!
         
