@@ -19,6 +19,7 @@
 		1F4419AA1FDA9F750091C0C3 /* CalenderDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4419A81FDA9F750091C0C3 /* CalenderDayCell.xib */; };
 		1F4419B11FDAA2D10091C0C3 /* AgendaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4419AF1FDAA2D10091C0C3 /* AgendaListCell.swift */; };
 		1F4419B21FDAA2D10091C0C3 /* AgendaListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */; };
+		1F4419B51FDD09770091C0C3 /* WeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4419B41FDD09770091C0C3 /* WeatherAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		1F4419A81FDA9F750091C0C3 /* CalenderDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalenderDayCell.xib; sourceTree = "<group>"; };
 		1F4419AF1FDAA2D10091C0C3 /* AgendaListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaListCell.swift; sourceTree = "<group>"; };
 		1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaListCell.xib; sourceTree = "<group>"; };
+		1F4419B41FDD09770091C0C3 /* WeatherAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				1F4419711FDA9E190091C0C3 /* AppDelegate.swift */,
-				1F4419731FDA9E190091C0C3 /* ViewController.swift */,
+				1F4419B71FDD09920091C0C3 /* Storyboards */,
+				1F4419B61FDD097E0091C0C3 /* ViewControllers */,
+				1F4419B31FDD09580091C0C3 /* API */,
 				1F4419A21FDA9F290091C0C3 /* Cells */,
-				1F4419751FDA9E190091C0C3 /* Main.storyboard */,
 				1F44197B1FDA9E190091C0C3 /* Assets.xcassets */,
 				1F44197D1FDA9E190091C0C3 /* LaunchScreen.storyboard */,
 				1F4419801FDA9E190091C0C3 /* Info.plist */,
@@ -146,6 +149,30 @@
 				1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		1F4419B31FDD09580091C0C3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1F4419B41FDD09770091C0C3 /* WeatherAPIClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		1F4419B61FDD097E0091C0C3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F4419731FDA9E190091C0C3 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1F4419B71FDD09920091C0C3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1F4419751FDA9E190091C0C3 /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4419B51FDD09770091C0C3 /* WeatherAPIClient.swift in Sources */,
 				1F4419741FDA9E190091C0C3 /* ViewController.swift in Sources */,
 				1F4419721FDA9E190091C0C3 /* AppDelegate.swift in Sources */,
 				1F4419A91FDA9F750091C0C3 /* CalenderDayCell.swift in Sources */,

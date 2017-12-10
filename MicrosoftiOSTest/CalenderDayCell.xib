@@ -18,12 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgT-js-tmi">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="15.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnQ-Kv-Yte">
                         <rect key="frame" x="8" y="8" width="35" height="35"/>
                         <constraints>
@@ -34,6 +28,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgT-js-tmi">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="15.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZY-5v-gMO">
+                        <rect key="frame" x="21" y="38" width="8" height="8"/>
+                        <color key="backgroundColor" red="0.19207493959999999" green="0.44330319759999998" blue="0.75692951679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="bkB-KP-6sO"/>
+                            <constraint firstAttribute="height" constant="8" id="dsv-kA-xCg"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -41,13 +49,16 @@
                 <constraint firstItem="qgT-js-tmi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PD8-Jp-Qm7"/>
                 <constraint firstItem="KnQ-Kv-Yte" firstAttribute="top" secondItem="qgT-js-tmi" secondAttribute="bottom" constant="-7.5" id="R9f-Od-nsO"/>
                 <constraint firstAttribute="trailing" secondItem="qgT-js-tmi" secondAttribute="trailing" id="WKw-tt-Ho5"/>
+                <constraint firstItem="yZY-5v-gMO" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="g8y-Sh-G0m"/>
                 <constraint firstItem="KnQ-Kv-Yte" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gnw-31-Nzd"/>
                 <constraint firstItem="KnQ-Kv-Yte" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="n32-oL-pqt"/>
+                <constraint firstAttribute="bottom" secondItem="yZY-5v-gMO" secondAttribute="bottom" constant="4" id="vgJ-yR-Ngt"/>
                 <constraint firstItem="qgT-js-tmi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yUV-W2-BwP"/>
             </constraints>
             <connections>
                 <outlet property="dayLbl" destination="KnQ-Kv-Yte" id="J4h-ag-ErB"/>
                 <outlet property="monthLbl" destination="qgT-js-tmi" id="Mmp-rc-gao"/>
+                <outlet property="roundView" destination="yZY-5v-gMO" id="zMP-Lo-Ncd"/>
             </connections>
         </collectionViewCell>
     </objects>

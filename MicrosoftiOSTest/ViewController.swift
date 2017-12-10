@@ -272,29 +272,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 
                 //Create current cell date object
-                let thisDate = getDate(fromIndex: dateNo)
-                calenderCell?.thisDate = thisDate
+                let cellDisplayDate = getDate(fromIndex: dateNo)
+                calenderCell?.cellDisplayDate = cellDisplayDate
                 
                 
+                //Checking if selected date is set
                 if dateSelected != nil{
                     
-                    //Checking if the cell has the selected date
-                    let order = NSCalendar.current.compare(thisDate, to: dateSelected, toGranularity: .day)
-                    if order == .orderedSame {
-                        
-                        calenderCell?.selectCell()
-                        
-                    }else{
-                        
-                        calenderCell?.unSelectCell()
-                        
-                    }
+                    //Create selected date object
+                    let cellSelectedDate = dateSelected
+                    calenderCell?.cellSelectedDate = cellSelectedDate
                     
                 }
                 
-                
-                
-                
+            
                 
             }else if row > currentMonthFirstWeekDay + currentMonthDays - 2{
                 
