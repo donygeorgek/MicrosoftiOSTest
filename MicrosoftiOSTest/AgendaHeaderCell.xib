@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgendaHeaderCell" id="KGk-i7-Jjw" customClass="AgendaHeaderCell" customModule="MicrosoftiOSTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="33.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVg-RQ-aag">
+                        <rect key="frame" x="8" y="0.0" width="152" height="33"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <color key="textColor" red="0.33725490196078434" green="0.52941176470588236" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlm-UQ-7Bp">
+                        <rect key="frame" x="160" y="0.0" width="160" height="33"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6Q-YO-Nnh">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                <color key="textColor" red="0.33725490200000002" green="0.52941176469999995" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="C6Q-YO-Nnh" secondAttribute="bottom" id="LdT-d4-nkl"/>
+                            <constraint firstItem="C6Q-YO-Nnh" firstAttribute="leading" secondItem="Hlm-UQ-7Bp" secondAttribute="leading" id="TtW-kt-3y5"/>
+                            <constraint firstItem="C6Q-YO-Nnh" firstAttribute="top" secondItem="Hlm-UQ-7Bp" secondAttribute="top" id="W9w-In-ILQ"/>
+                            <constraint firstAttribute="trailing" secondItem="C6Q-YO-Nnh" secondAttribute="trailing" id="h68-N0-NoY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Hlm-UQ-7Bp" secondAttribute="bottom" constant="0.5" id="6ul-aD-1Sx"/>
+                    <constraint firstAttribute="trailing" secondItem="Hlm-UQ-7Bp" secondAttribute="trailing" id="EST-wa-vX7"/>
+                    <constraint firstItem="QVg-RQ-aag" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="P4x-3d-B81"/>
+                    <constraint firstAttribute="bottom" secondItem="QVg-RQ-aag" secondAttribute="bottom" constant="0.5" id="T1y-uS-puZ"/>
+                    <constraint firstItem="QVg-RQ-aag" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZmV-vn-2iq"/>
+                    <constraint firstItem="Hlm-UQ-7Bp" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="atk-Qj-XkR"/>
+                    <constraint firstItem="Hlm-UQ-7Bp" firstAttribute="leading" secondItem="QVg-RQ-aag" secondAttribute="trailing" id="w3B-3a-SNC"/>
+                    <constraint firstItem="Hlm-UQ-7Bp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yxd-pu-N8R"/>
+                    <constraint firstItem="QVg-RQ-aag" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" constant="-8" id="zMi-UY-kjk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="agendaTitle" destination="QVg-RQ-aag" id="2eU-GN-h0Q"/>
+                <outlet property="weatherTitle" destination="C6Q-YO-Nnh" id="buu-VH-wXN"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

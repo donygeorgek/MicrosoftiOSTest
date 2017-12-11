@@ -21,6 +21,8 @@
 		1F4419B21FDAA2D10091C0C3 /* AgendaListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */; };
 		1F4419B51FDD09770091C0C3 /* WeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4419B41FDD09770091C0C3 /* WeatherAPIClient.swift */; };
 		1F4419B91FDD16000091C0C3 /* eventsDataset.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F4419B81FDD16000091C0C3 /* eventsDataset.json */; };
+		1F4419BC1FDE806A0091C0C3 /* AgendaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4419BA1FDE806A0091C0C3 /* AgendaHeaderCell.swift */; };
+		1F4419BD1FDE806A0091C0C3 /* AgendaHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4419BB1FDE806A0091C0C3 /* AgendaHeaderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaListCell.xib; sourceTree = "<group>"; };
 		1F4419B41FDD09770091C0C3 /* WeatherAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPIClient.swift; sourceTree = "<group>"; };
 		1F4419B81FDD16000091C0C3 /* eventsDataset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eventsDataset.json; sourceTree = "<group>"; };
+		1F4419BA1FDE806A0091C0C3 /* AgendaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaHeaderCell.swift; sourceTree = "<group>"; };
+		1F4419BB1FDE806A0091C0C3 /* AgendaHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaHeaderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 				1F4419A81FDA9F750091C0C3 /* CalenderDayCell.xib */,
 				1F4419AF1FDAA2D10091C0C3 /* AgendaListCell.swift */,
 				1F4419B01FDAA2D10091C0C3 /* AgendaListCell.xib */,
+				1F4419BA1FDE806A0091C0C3 /* AgendaHeaderCell.swift */,
+				1F4419BB1FDE806A0091C0C3 /* AgendaHeaderCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 				1F4419AA1FDA9F750091C0C3 /* CalenderDayCell.xib in Resources */,
 				1F44197C1FDA9E190091C0C3 /* Assets.xcassets in Resources */,
 				1F4419B91FDD16000091C0C3 /* eventsDataset.json in Resources */,
+				1F4419BD1FDE806A0091C0C3 /* AgendaHeaderCell.xib in Resources */,
 				1F4419B21FDAA2D10091C0C3 /* AgendaListCell.xib in Resources */,
 				1F4419771FDA9E190091C0C3 /* Main.storyboard in Resources */,
 			);
@@ -320,6 +327,7 @@
 				1F4419741FDA9E190091C0C3 /* ViewController.swift in Sources */,
 				1F4419721FDA9E190091C0C3 /* AppDelegate.swift in Sources */,
 				1F4419A91FDA9F750091C0C3 /* CalenderDayCell.swift in Sources */,
+				1F4419BC1FDE806A0091C0C3 /* AgendaHeaderCell.swift in Sources */,
 				1F44197A1FDA9E190091C0C3 /* MicrosoftiOSTest.xcdatamodeld in Sources */,
 				1F4419B11FDAA2D10091C0C3 /* AgendaListCell.swift in Sources */,
 			);
@@ -570,6 +578,7 @@
 				1F44199B1FDA9E190091C0C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F44199C1FDA9E190091C0C3 /* Build configuration list for PBXNativeTarget "MicrosoftiOSTestTests" */ = {
 			isa = XCConfigurationList;
@@ -578,6 +587,7 @@
 				1F44199E1FDA9E190091C0C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F44199F1FDA9E190091C0C3 /* Build configuration list for PBXNativeTarget "MicrosoftiOSTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -586,6 +596,7 @@
 				1F4419A11FDA9E190091C0C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

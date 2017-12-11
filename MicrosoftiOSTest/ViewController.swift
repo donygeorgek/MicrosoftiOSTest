@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate {
     
     //Array of weekdays
     var weekDayNames:[String] = Array()
@@ -32,7 +33,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var agendaData: [[String: Any]] = []
     //Dummy events Data
     var dummyEventsData: [[String: Any]] = []
-    
+    //Agenda header title
+    var agendaheaderTitle: String = ""
+    //Agenda Weather title
+    var agendaWeatherTitle: String = ""
 
 
     //Week days collection view
@@ -42,10 +46,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //Agenda table view
     @IBOutlet weak var agendaTableView: UITableView!
     
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        setupLocationAccess()
         setUpNavigationButtons()
         registerCustomCells()
         initializeDatas()
@@ -63,6 +70,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         calenderCollectionView.register(UINib(nibName: "CalenderDayCell", bundle: Bundle(for: CalenderDayCell.self)), forCellWithReuseIdentifier: "CalenderDayCell")
         agendaTableView.register(UINib(nibName: "AgendaListCell", bundle: Bundle(for: AgendaListCell.self)), forCellReuseIdentifier: "AgendaListCell")
+        agendaTableView.register(UINib(nibName: "AgendaHeaderCell", bundle: Bundle(for: AgendaHeaderCell.self)), forCellReuseIdentifier: "AgendaHeaderCell")
         agendaTableView.tableFooterView = UIView()
     }
     
@@ -194,12 +202,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //Generating random number of events for a day
         let randomCount = Int(arc4random_uniform(UInt32(dummyEventsData.count)) + 1)
         
-        for _ in 0..<randomCount{
+        for var i in 0..<randomCount{
             
-            //Selecting random event from the dummy event list for a date
-            let randomNo = Int(arc4random_uniform(UInt32(dummyEventsData.count)))
-            
-            agendaData.append(dummyEventsData[randomNo])
+            agendaData.append(dummyEventsData[i])
         }
         
         self.agendaTableView.reloadData()
@@ -241,6 +246,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return formatter
     }
     
+    //Function to get formatter for agenda title
+    func agendaTitleFormatter() -> DateFormatter {
+        
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "EEEE MMMM dd yyyy"
+        return formatter
+    }
+    
+    //Function to get agenda title  for selected date
+    func getAgendaTitle(fromDate:Date) -> String {
+        
+        let result = agendaTitleFormatter().string(from: fromDate).uppercased()
+        
+        let order = NSCalendar.current.compare(fromDate, to: currentDate, toGranularity: .day)
+        if order == .orderedSame {
+            
+            return "TODAY, \(result)"
+            
+        }else{
+            
+            return result
+            
+        }
+        
+        
+        
+        
+    }
     
     //Function to get no of days for month
     func getNumberOfDays(inMonth currentMonth:Date) -> Int {
@@ -276,6 +309,88 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     
+    
+    // Show alert if app has been deined access to location
+    func showLocationDisabledAlert() {
+        let alertController = UIAlertController(title: "Location Access Disabled",
+                                                message: "Please enable it from settings",
+                                                preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(openAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    //Func to seup location access
+    func setupLocationAccess(){
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
+        
+    }
+    
+    
+    //Func to get the weather
+    func loadWeatherForLocation(lat: String, long: String){
+        
+        let apiClient = WeatherAPIClient()
+        apiClient.getWeatherForLocation(lat: lat, long: long) { (responseDict, success) in
+            print("WeatherApi Response: \(responseDict)")
+            if success{
+                if responseDict["currently"] != nil{
+                    
+                    let weatherDict =  responseDict["currently"] as! [String: Any]
+                    
+                    self.agendaWeatherTitle = "Forecast: \(String(describing: weatherDict["summary"]!)) Temp: \(String(describing: weatherDict["temperature"]!)) F Humidity: \(String(describing: weatherDict["humidity"]!)) Windspeed: \(String(describing: weatherDict["windSpeed"]!))"
+                    
+                }
+                DispatchQueue.main.async {
+                }
+                
+            }else{
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Something went wrong", message: "", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(ok)
+                    //Not showning the alert for now
+                    //self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    
+
+    
+    
+    // Get location info and call api
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            
+            loadWeatherForLocation(lat: "\(location.coordinate.latitude)", long: "\(location.coordinate.longitude)")
+            locationManager.stopUpdatingLocation()
+            print(location.coordinate)
+        }
+    }
+    
+    // If we have been deined access give the user the option to change it
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == CLAuthorizationStatus.denied) {
+            showLocationDisabledAlert()
+        }
+    }
     
     
     //CollectionView methods
@@ -422,6 +537,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 let dateNo = row - currentMonthFirstWeekDay + 2
                 dateSelected = getDate(fromIndex: dateNo)
+                
+                agendaheaderTitle = getAgendaTitle(fromDate: dateSelected)
                 collectionView.reloadData()
                 
                 if randomEventsDates.contains(dateSelected){
@@ -529,15 +646,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //Tableview Methods
     
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section"
+
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?{
+        
+        let  headerCell = tableView.dequeueReusableCell(withIdentifier: "AgendaHeaderCell") as! AgendaHeaderCell
+        headerCell.backgroundColor = UIColor.init(hex: "ECF3F9")
+        headerCell.agendaTitle.text = "\(agendaheaderTitle)"
+        headerCell.weatherTitle.text = "\(agendaWeatherTitle)"
+        
+        return headerCell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if agendaData.count > 0 {
             
-            return 20
+            return 34
             
         }else{
             
