@@ -353,7 +353,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     
                     let weatherDict =  responseDict["currently"] as! [String: Any]
                     
-                    self.agendaWeatherTitle = "Forecast: \(String(describing: weatherDict["summary"]!)) Temp: \(String(describing: weatherDict["temperature"]!)) F Humidity: \(String(describing: weatherDict["humidity"]!)) Windspeed: \(String(describing: weatherDict["windSpeed"]!))"
+                    self.agendaWeatherTitle = "Forecast: \(String(describing: weatherDict["summary"]!)) - Temp: \(String(describing: weatherDict["temperature"]!)) F - Humidity: \(String(describing: weatherDict["humidity"]!)) - Windspeed: \(String(describing: weatherDict["windSpeed"]!))"
                     
                 }
                 DispatchQueue.main.async {
@@ -373,7 +373,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
 
-    
+    // MARK: - Location manager delegate methods
     
     // Get location info and call api
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -393,7 +393,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    //CollectionView methods
+    // MARK: - Collection view data source and delegate methods
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         
         
@@ -643,7 +644,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     
-    //Tableview Methods
+    // MARK: - Table view data source and delegate methods
     
     
 
@@ -718,6 +719,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
 }
+
+// MARK: - Color extension
 
 extension UIColor {
     convenience init(hex: String) {

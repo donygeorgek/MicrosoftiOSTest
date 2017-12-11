@@ -8,8 +8,9 @@
 
 import UIKit
 
+//Unused
 protocol CalenderDayCellDelegate : class {
-    func didTappedDate(catageriesData: [[String : Any]])
+    func didTappedDate(selectedDate: Date)
 }
 
 
@@ -47,7 +48,6 @@ class CalenderDayCell: UICollectionViewCell {
         // Initialization code
         
         
-        self.delegate?.didTappedDate(catageriesData: [])
     }
     
     
